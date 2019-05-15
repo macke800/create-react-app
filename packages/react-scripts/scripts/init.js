@@ -256,6 +256,17 @@ module.exports = function(
   }
   console.log();
   console.log('Happy hacking!');
+  console.log();
+
+  console.log(
+    chalk.yellow(
+      'Ps. Customized for antd with less and babel-plugin-import support Ds.'
+    )
+  );
+  console.log('Inside that directory, you can run several commands:');
+  console.log();
+  console.log(chalk.cyan(`  yarn add --dev less`));
+  console.log('    Adds support for Less.');
 };
 
 function isReactInstalled(appPackage) {
