@@ -125,15 +125,19 @@ module.exports = function(webpackEnv) {
         },
       },
     ].filter(Boolean);
-    if (preProcessor) {
-      loaders.push(
-        {
-          loader: require.resolve(preProcessor),
-          options: {
-            sourceMap: isEnvProduction && shouldUseSourceMap,
-            javascriptEnabled: preProcessor === 'less-loader',
+    if (preProcessor === 'less-loader') {
+      loaders.push({
+        loader: require.resolve(preProcessor),
+        options: {
+          sourceMap: isEnvProduction && shouldUseSourceMap,
+          javascriptEnabled: true,
+          modifyVars: {
+            hack: `true; @import "${paths.appSrc}/antd-style-override.less";`,
           },
         },
+      });
+    } else if (preProcessor) {
+      loaders.push(
         {
           loader: require.resolve('resolve-url-loader'),
           options: {
