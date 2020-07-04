@@ -388,6 +388,22 @@ module.exports = function(
   }
   console.log();
   console.log('Happy hacking!');
+  console.log();
+
+  console.log(
+    chalk.yellow(
+      'Psst! This react-script package is customized for antd with less and babel-plugin-import support!'
+    )
+  );
+  console.log('To setup ant development run the following commands:');
+  console.log();
+  console.log(chalk.cyan(`  npm install less --save-dev`));
+  console.log(chalk.cyan(`  npm install @types/less antd --save`));
+  console.log();
+  console.log(
+    'This adds support for Less and antd. The default style of can be overriden in'
+  );
+  console.log('src/antd-style-override.less.');
 };
 
 function isReactInstalled(appPackage) {
